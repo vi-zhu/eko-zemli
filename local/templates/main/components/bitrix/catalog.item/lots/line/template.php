@@ -107,7 +107,7 @@ $APPLICATION->IncludeComponent(
 	$component
 );
 			?></div>
-			<div class="h1"><?=$_title?></div>
+			<h2 class="h1"><?=$_title?></h2>
 			<div class="hr"></div>
 			<div class="placement">
 				<div class="address">Московская область<?if($item['DISPLAY_PROPERTIES']['area']['DISPLAY_VALUE'] != ""){?>, <?=$item['DISPLAY_PROPERTIES']['area']['DISPLAY_VALUE']?><?}?></div>
