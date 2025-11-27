@@ -126,9 +126,11 @@ $APPLICATION->IncludeComponent(
 			</div>
 			<?if ($item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE'] > 0 && $poselok_name != ""){?><div class="poselok_link">Участок № <span><?=$item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE']?></span> в <span><?=$item['DISPLAY_PROPERTIES']['poselok']['DISPLAY_VALUE']?></span></div><?}?>
 			<div class="descr">
-				<?if($item['NAME'] != "") {?>Кадастровый номер: <strong><?=$item['NAME']?></strong>.<?}?>
+				<p><?if($item['NAME'] != "") {?>Кадастровый номер: <strong><?=$item['NAME']?></strong>.<?}?>
 				<?if($item['DISPLAY_PROPERTIES']['use_for']['DISPLAY_VALUE'] != "") {?>Разрешенное использование: <?=$item['DISPLAY_PROPERTIES']['use_for']['DISPLAY_VALUE']?>.<?}?>
 				<?if($item['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'] != "") {?>Цена за сотку: <?=formatNum($item['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'])?>&nbsp;₽.<?}?>
+                </p>
+                <?=truncateTextWithoutSpaces($item['PREVIEW_TEXT'], 180);?>
 			</div>
 			<div class="buttons">
 				<?/*<a class="button" onclick="show_bron('Хочу купить участок № <?=$item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE']?> в поселке «<?=$poselok_name?>», (площадь: <?=$item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE']?> сот., цена за сотку: <?=formatNum($item['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'])?> ₽, цена участка: <?=formatNum($item['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE'])?> ₽, кадастровый номер: <?=$item['NAME']?>)')">Оставить заявку</a>
