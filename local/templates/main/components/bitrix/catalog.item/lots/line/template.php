@@ -58,6 +58,7 @@ if($poselok_info) {
 }
 
 $title = "";
+$alt = "";
 
 if($item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE'] > 0) {
     $title .= $item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE']." ".sotok($item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE']);
@@ -84,12 +85,17 @@ if ($item['IPROPERTY_VALUES']['ELEMENT_PREVIEW_PICTURE_FILE_TITLE']) {
         $title = "Участок";
     }
 }
+if ($item['IPROPERTY_VALUES']['ELEMENT_PREVIEW_PICTURE_FILE_ALT']) {
+    $alt = $item['IPROPERTY_VALUES']['ELEMENT_PREVIEW_PICTURE_FILE_ALT'];
+} else {
+    $alt = $title;
+}
 ?>
 <div class="lot-row" id="itemrow<?=$item["ID"]?>">
 	<div class="row align-items-center">
 		<div class="d-none d-sm-block col-12 col-sm-4 col-md-5 col-lg-3">
 			<div class="poselok-image w100" style="background-image: url('<?=$poselok_img?>')">
-			<? if ($itemHasDetailUrl): ?><a class="product-item-image-wrapper" href="<?=$item['DETAIL_PAGE_URL']?><?if($arParams["UID"] != ""){ echo "?uid=".$arParams["UID"]; }?>" title="<?=$title?>" data-entity="image-wrapper"><? else: ?><span class="product-item-image-wrapper" data-entity="image-wrapper"><? endif; ?>
+			<? if ($itemHasDetailUrl): ?><a class="product-item-image-wrapper" href="<?=$item['DETAIL_PAGE_URL']?><?if($arParams["UID"] != ""){ echo "?uid=".$arParams["UID"]; }?>" title="<?=$title?>" alt="<?=$alt?>" data-entity="image-wrapper"><? else: ?><span class="product-item-image-wrapper" data-entity="image-wrapper"><? endif; ?>
 				<div style="width: 100%; height: 100%;"><div class="label"><?if($poselok_pay != ""){?><div class="bk"><?=$poselok_pay?></div><?}?><?if($item['DISPLAY_PROPERTIES']['IZS']['DISPLAY_VALUE'] != "!Да"){?><div class="izs">ИЖС</div><?}?></div></div>
 			<? if ($itemHasDetailUrl): ?></a><? else: ?></span><? endif; ?>
 			</div>
