@@ -1,0 +1,50 @@
+.menu_top_mobile ul {
+	padding: 0;
+	list-style: none;
+	margin-bottom: 50px;
+}
+.menu_top_mobile ul li {
+	position: relative;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+
+.menu_top_mobile ul li a {
+    display: block;
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu_top_mobile ul.msub1 li a {
+    text-transform: none;
+}
+
+.menu_top_mobile .mroot-item .mi_down {
+    font-size: 19px;
+    margin-right: 12px;
+}
+
+.menu_top_mobile .mroot-item .mi_down:before {
+    position: absolute;
+    top: 8px;
+}
+
+.menu_top_mobile ul li ul {
+	display: none;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.menu_top_mobile a:hover, .menu_top_mobile ul li a.root-item-selected {
+	color: var(--color-menu-green);
+}

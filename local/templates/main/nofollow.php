@@ -1,0 +1,7 @@
+<?
+global $nofollow;
+
+$nofollow = [
+	"/izbrannoe/"
+];
+?>

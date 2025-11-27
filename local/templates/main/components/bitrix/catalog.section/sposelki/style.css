@@ -1,0 +1,83 @@
+.small-card {
+	box-shadow: 0 15px 25px rgb(0 0 0 / 10%);
+	background-color: #fff;
+}
+
+.small-card.poselok-card {
+    margin: 15px 0 25px 0;
+	border-radius: var(--border-radius);
+}
+
+.small-card .poselok-image {
+    aspect-ratio: 1.3;
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.small-card .textcard {
+	padding: 15px 25px 25px 25px;
+}
+
+.small-card .buttons {
+    margin-top: 10px;
+}
+
+.poselok-card.small-card .buttons {
+    display: flex;
+	gap: 5px;
+}
+
+.poselok-card.small-card .buttons a {
+    margin: 0;
+	flex-grow: 1;
+}
+
+.small-card.poselok-card .price {
+     margin-bottom: 0;
+}
+
+.small-card.poselok-card .price_ps {
+	color: #b2b2b2;
+	font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+@media (max-width: 575.98px) {
+    .poselok-card.small-card .textcard {
+        margin-top: 0;
+        padding-bottom: 25px;
+    }
+	.poselok-card.small-card .icn {
+        margin: 0px 35px 20px 0;
+    }
+}
+
+@media (min-width: 575.99px) and (max-width: 767.98px) {
+    .poselok-card.small-card { margin-bottom: 50px; }
+	.poselok-card.small-card .textcard { margin-top: 0; padding-bottom: 25px; }
+}
+@media (min-width: 767.99px) and (max-width: 991.98px) {
+    .poselok-card.small-card .icn { margin: 0px 20px 20px 0; }
+}
+@media (min-width: 991.99px) and (max-width: 1099.98px) {
+	.small-card .h3 { font-size: calc(1.2rem + .5vw); }
+	.small-card .buttons a.button { padding: 0 10px;}
+	.poselok-card.small-card .icn { margin: 10px 20px 20px 0; }
+}
+@media (min-width: 1099.99px) and (max-width: 1199.98px) {
+	.small-card .buttons a.button { padding: 0 19px;}
+	.poselok-card.small-card .icn { margin: 10px 30px 20px 0; }
+}
+@media (min-width: 1199.99px) and (max-width: 1299.98px) {
+	.small-card .h3 { font-size: calc(1.2rem + .5vw); }
+	.small-card .buttons a.button { padding: 0 11px;}
+	.poselok-card.small-card .icn { margin: 10px 20px 20px 0; }
+}
+@media (min-width: 1299.99px) and (max-width: 1399.98px) {
+	.small-card .buttons a.button { padding: 0 19px;}
+	.poselok-card.small-card .icn { margin: 10px 30px 20px 0; }
+}
+@media (min-width: 1399.99px)  {
+	.poselok-card.small-card .icn { margin: 10px 40px 20px 0; }
+}

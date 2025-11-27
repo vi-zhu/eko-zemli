@@ -1,0 +1,30 @@
+ul.map-level-0 > li > a {
+	font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+ul.map-level-1 > li > a {
+	font-weight: 400;
+}
+
+ul.map-level-2 a, ul.map-level-3 a {
+	font-weight: 300;
+	text-transform: none;
+    letter-spacing: 0px;
+}
+
+.map-columns {
+    margin: 40px 0 60px 0;
+    column-count: 3;
+}
+
+ul.map-level-0, ul.map-level-1, ul.map-level-2, ul.map-level-3 {
+    list-style: none;
+}
+@media (max-width: 575.98px) {
+	.map-columns {column-count: 1;}
+}
+@media (min-width: 575.99px) and (max-width: 767.98px) {
+	.map-columns {column-count: 2;}
+}

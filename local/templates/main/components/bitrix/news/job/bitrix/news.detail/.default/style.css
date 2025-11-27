@@ -1,0 +1,20 @@
+.job_detail ul {
+    list-style-type: none;
+	margin: 20px 0 0 0;
+	padding: 0px;
+}
+
+.job_detail li {
+    padding-left: 40px;
+	margin-bottom: 10px;
+}
+
+.job_detail li:before {
+    content: "—";
+    position: absolute;
+    margin-left: -20px;
+}
+
+.job_preview {
+	font-weight: 400;
+}

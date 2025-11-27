@@ -1,0 +1,87 @@
+.pagination {
+	margin: 50px 0;
+	align-items: center;
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+	font-weight: 400;
+}
+
+.pagination a {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--border-radius);
+    color: #b2b2b2 !important;
+    display: inline-block;
+    line-height: 1.25;
+    padding: 5px 10px;
+    text-decoration: none;
+	transition: all .3s;
+	margin: 2px 0;
+	height: 32px;
+}
+.pagination a:hover {
+	border: var(--bs-border-width) solid var(--color-green);
+	background-color: var(--color-green);
+	color: #fff !important;
+}
+
+.pagination strong {
+    border: var(--bs-border-width) solid var(--color-green);
+    border-radius: var(--border-radius);
+    background-color: var(--color-green);
+	color: #fff;
+    display: inline-block;
+    line-height: 1.25;
+    padding: 5px 10px;
+	transition: all .3s;
+	font-weight: 500;
+	height: 32px;
+}
+
+.pagination span {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--bs-border-color);
+    display: inline-block;
+    line-height: 1.25;
+    padding: 5px 10px;
+	height: 32px;
+}
+@media (max-width: 409.98px) {
+	.pagination .nav_end { display: none !important; }
+	.pagination .nav_begin { display: none !important; }
+}
+
+@media (max-width: 767.98px) {
+	.pagination { flex-direction: column; gap: 15px; }
+	.pagination .nav_end, .pagination .nav_next, .pagination .nav_begin, .pagination .nav_prev {
+		font-family: 'Material Symbols Outlined';
+		font-weight: normal;
+		font-style: normal;
+		font-size: 25px;
+		line-height: 1;
+		letter-spacing: normal;
+		text-transform: none;
+		display: inline-block;
+		white-space: nowrap;
+		word-wrap: normal;
+		direction: ltr;
+		overflow: hidden;
+		width: 35px;
+		height: 32px;
+		position: absolute;
+	}
+	.pagination .right_pag {position: relative;}
+
+	.pagination .nav_end:before { content: "\e5dd"; }
+	.pagination .nav_next:before { content: "\e5cc"; }
+	.pagination .nav_begin:before { content: "\e5dc"; }
+	.pagination .nav_prev:before { content: "\e5cb"; }
+
+	.pagination .nav_end:before, .pagination .nav_next:before, .pagination .nav_begin:before, .pagination .nav_prev:before { position: relative; top: -2px; left: -5px; }
+
+	.pagination .nav_end { margin-left: 43px;}
+	.pagination .nav_next { margin-left: 4px; }
+	.pagination .nav_begin { margin-left: -78px; }
+	.pagination .nav_prev { margin-left: -39px; }
+}

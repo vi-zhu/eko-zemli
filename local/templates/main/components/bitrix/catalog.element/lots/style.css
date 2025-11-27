@@ -1,0 +1,42 @@
+.textcard {
+	position: relative;
+}
+
+.textcard .title_lot {
+	display: flex;
+	gap: 20px;
+}
+
+.textcard .title_lot .h1 {
+	flex-grow: 100;
+	padding-right: 0 !important;
+}
+
+.textcard .title_lot .izbrn {
+	position: relative;
+    right: 0;
+}
+
+.textcard .title_lot .izbrn .mi_fav {
+    position: relative;
+    font-size: calc(2rem + 2vw);
+	top: 0;
+}
+.textcard .descr {
+	margin-top: 30px;
+	padding-right: 40px;
+}
+
+.textcard .descr strong {
+	font-weight: 500;
+    font-size: 18px;
+	white-space: nowrap;
+}
+
+.textcard .descr strong.wrap {
+	white-space: normal;
+}
+
+@media(max-width:575px){
+	padding-right: 0;
+}

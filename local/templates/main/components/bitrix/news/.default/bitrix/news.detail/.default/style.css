@@ -1,0 +1,28 @@
+.news_detail .news_preview {
+	margin-top: 1%;
+	margin-bottom: 2%;
+	font-size: calc(1.2rem + .35vw);
+	font-weight: 400;
+}
+
+.photos .thumbnail {
+	height: 100%;
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.rowgal {
+	height: 70vh !important;
+}
+.rowgal .row {
+	height: 100% !important;
+}
+.pad10 {
+	padding: 10px;
+}
+
+@media(max-width:575px){
+	.thumbnail { height: 250px !important; }
+	.rowgal { height: auto !important; }
+}

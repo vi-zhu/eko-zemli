@@ -1,0 +1,191 @@
+#map_location {
+    box-shadow: 0 15px 25px rgb(0 0 0 / 10%);
+}
+
+.poselok-card {
+    margin: 0 0 50px 0;
+}
+
+.poselok-card .label {
+    position: absolute;
+    left: -15px;
+    top: -15px;
+	display: flex;
+    gap: 3px;
+	flex-wrap: wrap;
+}
+
+.poselok-card .bk {
+    background-color: var(--color-green);
+    display: inline-block;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 10px 4px 10px;
+    border: 3px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+	border-radius: var(--border-radius);
+    white-space: nowrap;
+}
+
+.poselok-card .izs {
+    background-color: var(--color-blue);
+    display: inline-block;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 10px 4px 10px;
+    border: 3px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+	border-radius: var(--border-radius);
+	white-space: nowrap;
+}
+
+.poselok-card .price_ot {
+    font-weight: 400;
+    margin-top: 20px;
+    line-height: 22px;
+    font-size: 22px;
+	margin-bottom: 5px;
+	border-bottom: var(--bs-border-width) solid var(--bs-border-color);
+	padding-bottom: 15px;
+	display: inline-block;
+}
+
+.poselok-card .price_ps {
+	display: block;
+	font-weight: 500;
+}
+
+.poselok-card .price_ot span {
+    font-size: calc(1.325rem + 1.5vw);
+}
+
+.poselok-card .descr {
+}
+
+.poselok-card .opt {
+    display: flex;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 7px;
+	margin-bottom: 7px;
+    line-height: 1;
+    text-align: center;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--border-radius);
+	width: calc(6rem + 3.5vw);
+	height: calc(6rem + 3.5vw);
+}
+
+.poselok-card .opt .opt_title {
+	margin-bottom: 7px;
+}
+
+.poselok-card .opt .big {
+    font-size: calc(1.325rem + 1.5vw);
+    font-weight: 500;
+	color: var(--color-blue);
+	margin-bottom: 7px;
+	white-space: nowrap;
+}
+
+.poselok-card .price {
+    margin-bottom: 25px;
+}
+
+.poselok-card .opts {
+	flex-wrap: nowrap;
+    display: flex;
+}
+
+.poselok-card .opt .small {
+    font-size: 22px;
+}
+
+.poselok-card .placement {
+    font-size: 23px;
+    font-weight: 400;
+    margin-top: 20px;
+    line-height: 1.25;
+}
+
+.poselok-card .sold_out {
+	font-size: 23px;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.poselok-card .km {
+	text-align: right;
+}
+
+.poselok-card .min {
+	text-align: left;
+	border-left: var(--bs-border-width) solid var(--bs-border-color);
+}
+
+.poselok-card .infra {
+    color: var(--color-blue);
+	margin-top: 20px;
+}
+
+.poselok-card .icn {
+	position: relative;
+	margin: 10px 50px 30px 0;
+}
+
+.poselok-card .icn:last-child {
+	margin-right: 0;
+}
+
+.poselok-card .icn_i {
+    text-align: center;
+}
+
+.poselok-card .icn_i .mso {
+	font-size: 31px;
+}
+
+.poselok-card .icn_t {
+	margin-top: 7px;
+    text-align: center;
+    font-weight: 400;
+    color: #333;
+}
+
+.poselok-card > div > div.order-md-1 {
+	padding-left: 40px;
+}
+
+@media (max-width: 575.98px) {
+	.poselok-card .textcard { margin-top: 30px; padding-bottom: 0;}
+	.poselok-card > div > div.order-md-1 { padding-left: 15px; }
+	.poselok-card a.button { padding: 0 20px; }
+	.poselok-card { margin-bottom: 60px; }
+}
+@media (min-width: 575.99px) and (max-width: 767.98px) {
+	.poselok-card .textcard { margin-top: 30px; padding-bottom: 0;}
+	.poselok-card > div > div.order-md-1 { padding-left: 15px; }
+	.poselok-card a.button { padding: 0 35px; }
+	.poselok-card { margin-bottom: 60px; }
+}
+@media (min-width: 767.99px) and (max-width: 991.98px) {
+	.poselok-card .icn { margin: 10px 40px 30px 0; }
+	.poselok-card a.button { padding: 0 10px; }
+}
+@media (min-width: 991.99px) and (max-width: 1199.98px) {
+	.poselok-card a.button { padding: 0 20px; }
+}
+@media (min-width: 1199.99px) and (max-width: 1299.98px) {
+	.poselok-card a.button { padding: 0 25px; }
+}
+@media (min-width: 1299.99px) and (max-width: 1399.98px) {
+	.poselok-card a.button { padding: 0 30px; }
+}
+@media (min-width: 1399.99px)  {
+	.poselok-card a.button { padding: 0 40px; }
+}
