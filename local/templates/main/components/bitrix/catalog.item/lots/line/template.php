@@ -60,20 +60,30 @@ if($poselok_info) {
 $title = "";
 
 if($item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE'] > 0) {
-	$title .= $item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE']." ".sotok($item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE']);
+    $title .= $item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE']." ".sotok($item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE']);
 } else if($item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE'] != "") {
-	$title .= "№ ".$item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE'];
-} 
-if($item['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE'] > 0) {
-	$title .= " за ".formatNum($item['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE'])."&nbsp;₽";
-} 
-$_title = $title;
-if($poselok_name != "") {
-	$title = "Участок " . $title . " в ".$poselok_name;
+    $title .= "№ ".$item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE'];
 }
-if($_title == "") {
-	$title = "Участок";
-} 
+if($item['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE'] > 0) {
+    $title .= " за ".formatNum($item['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE'])."&nbsp;₽";
+}
+
+if ($item['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE']) {
+    $_title = $item['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'];
+} else {
+    $_title = $title;
+}
+
+if ($item['IPROPERTY_VALUES']['ELEMENT_PREVIEW_PICTURE_FILE_TITLE']) {
+    $title = $item['IPROPERTY_VALUES']['ELEMENT_PREVIEW_PICTURE_FILE_TITLE'];
+} else {
+    if($poselok_name != "") {
+        $title = "Участок " . $title . " в ".$poselok_name;
+    }
+    if($_title == "") {
+        $title = "Участок";
+    }
+}
 ?>
 <div class="lot-row" id="itemrow<?=$item["ID"]?>">
 	<div class="row align-items-center">
