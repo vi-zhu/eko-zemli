@@ -136,7 +136,7 @@ $APPLICATION->IncludeComponent(
 				<?/*<a class="button" onclick="show_bron('Хочу купить участок № <?=$item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE']?> в поселке «<?=$poselok_name?>», (площадь: <?=$item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE']?> сот., цена за сотку: <?=formatNum($item['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'])?> ₽, цена участка: <?=formatNum($item['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE'])?> ₽, кадастровый номер: <?=$item['NAME']?>)')">Оставить заявку</a>
                 <a onclick="map_lo(<?=$item["ID"]?>,<?=$item['PROPERTIES']['center']['VALUE']?>, '<?=$item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE']?>', [<?=print_points($item['DISPLAY_PROPERTIES']['nodes']['VALUE'])?>])" class="button frbtn">На карте</a>
                 */?>
-                <? if ($itemHasDetailUrl): ?><a href="<?=$item['DETAIL_PAGE_URL']?><?if($arParams["UID"] != ""){ echo "?uid=".$arParams["UID"]; }?>" class="button frbtn">Подробнее<i class="mso mi_rarr right"></i></a><? endif; ?>
+                <? if ($itemHasDetailUrl): ?><a class="button" href="<?=$item['DETAIL_PAGE_URL']?><?if($arParams["UID"] != ""){ echo "?uid=".$arParams["UID"]; }?>" class="button frbtn">Подробнее<i class="mso mi_rarr right"></i></a><? endif; ?>
 			</div>
 		</div>
 	</div>
