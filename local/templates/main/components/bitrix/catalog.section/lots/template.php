@@ -111,14 +111,14 @@ if ($showTopPager)
 	<?
 }
 
-if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
+/*if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 {
 	?>
 	<div class="bx-section-desc bx-<?=$arParams['TEMPLATE_THEME']?>">
 		<p class="bx-section-desc-post"><?=$arResult['DESCRIPTION'] ?? ''?></p>
 	</div>
 	<?
-}
+}*/
 ?>
 
 <div class="catalog-section" data-entity="<?=$containerName?>">
@@ -257,6 +257,20 @@ $signer = new \Bitrix\Main\Security\Sign\Signer;
 $signedTemplate = $signer->sign($templateName, 'catalog.section');
 $signedParams = $signer->sign(base64_encode(serialize($arResult['ORIGINAL_PARAMETERS'])), 'catalog.section');
 ?>
+
+<?if($USER->isAdmin() && $arResult['DESCRIPTION']):?>
+    <div class="row align-items-center lots__section-description">
+        <div class="col-12">
+            <?if($arResult['UF_SEO_TITLE']):?>
+                <h2 class="h1"><?=$arResult['UF_SEO_TITLE']?></h2>
+            <?endif;?>
+            <div class="hr mb-5"></div>
+            <?=$arResult['DESCRIPTION'];?>
+        </div>
+
+    </div>
+<?endif;?>
+
 <script>
 	BX.message({
 		BTN_MESSAGE_LAZY_LOAD: '<?=CUtil::JSEscape($arParams['MESS_BTN_LAZY_LOAD'])?>',

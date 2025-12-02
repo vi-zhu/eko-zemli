@@ -146,6 +146,10 @@
 	font-size: 18px;
 }
 
+.lots__section-description {
+    margin-bottom: 60px;
+}
+
 @media (max-width: 575.98px) {
 	.lot-row > div > div.order-md-1 { padding-left: 15px; }
 	.lot-row a.button { padding: 0 20px; }

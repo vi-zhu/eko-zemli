@@ -177,6 +177,7 @@ $APPLICATION->SetPageProperty("top_background", "/imgs/uchastki_s_dorogoy.webp")
 		),
 		"SIDEBAR_SECTION_POSITION" => "right",
 		"SIDEBAR_DETAIL_POSITION" => "right",
+		"SECTION_USER_FIELDS" => array("UF_SEO_TITLE"),
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "",
 			"section" => "#SECTION_CODE_PATH#/",
