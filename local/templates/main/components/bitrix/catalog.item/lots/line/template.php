@@ -113,7 +113,7 @@ $APPLICATION->IncludeComponent(
 	$component
 );
 			?></div>
-			<h2 class="h1"><?=$_title?></h2>
+			<span class="h1"><a href="<?=$item['DETAIL_PAGE_URL']?><?if($arParams["UID"] != ""){ echo "?uid=".$arParams["UID"]; }?>"><?=$_title?></a></span>
 			<div class="hr"></div>
 			<div class="placement">
 				<div class="address">Московская область<?if($item['DISPLAY_PROPERTIES']['area']['DISPLAY_VALUE'] != ""){?>, <?=$item['DISPLAY_PROPERTIES']['area']['DISPLAY_VALUE']?><?}?></div>
@@ -125,19 +125,46 @@ $APPLICATION->IncludeComponent(
 				</div>
 			</div>
 			<?if ($item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE'] > 0 && $poselok_name != ""){?><div class="poselok_link">Участок № <span><?=$item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE']?></span> в <span><?=$item['DISPLAY_PROPERTIES']['poselok']['DISPLAY_VALUE']?></span></div><?}?>
-			<div class="descr">
-				<p><?if($item['NAME'] != "") {?>Кадастровый номер: <strong><?=$item['NAME']?></strong>.<?}?>
+            <?if($item['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'] != "") {?>
+                <p><b>Цена за сотку: <?=formatNum($item['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'])?>&nbsp;₽.</b></p>
+            <?}?>
+            <div class="infra d-flex flex-wrap mt-4"><?
+                $icons = Array();
+                $titles = Array();
+
+                if(is_array($poselok_facility_icons)) {
+                    foreach($poselok_facility_icons as $key=>$val) {
+                        if($val == "roads") {
+                            array_unshift($icons, $val);
+                            array_unshift($titles, $poselok_facility_items[$key]);
+                        } else {
+                            $icons[] = $val;
+                            $titles[] = $poselok_facility_items[$key];
+                        }
+                    }
+                } else if($poselok_facility_icons != "" && $poselok_facility_items != "") {
+                    $icons[0] = $poselok_facility_icons;
+                    $titles[0] = $poselok_facility_items;
+                }
+
+                foreach($icons as $key=>$icon) {
+                    echo "<div class='icn'><div class='icn_i'><i class='mso mi mi_".$icon."' title='".$titles[$key]."'></i></div><div class='icn_t'>".decode_icn($icon)."</div></div>";
+                }
+                ?>
+            </div>
+            
+            <div class="descr">
+                <?/*<?if($item['NAME'] != "") {?>Кадастровый номер: <strong><?=$item['NAME']?></strong>.<?}?>
 				<?if($item['DISPLAY_PROPERTIES']['use_for']['DISPLAY_VALUE'] != "") {?>Разрешенное использование: <?=$item['DISPLAY_PROPERTIES']['use_for']['DISPLAY_VALUE']?>.<?}?>
-				<?if($item['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'] != "") {?>Цена за сотку: <?=formatNum($item['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'])?>&nbsp;₽.<?}?>
-                </p>
+                */?>
                 <?=truncateTextWithoutSpaces($item['PREVIEW_TEXT'], 180);?>
 			</div>
-			<div class="buttons">
-				<?/*<a class="button" onclick="show_bron('Хочу купить участок № <?=$item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE']?> в поселке «<?=$poselok_name?>», (площадь: <?=$item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE']?> сот., цена за сотку: <?=formatNum($item['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'])?> ₽, цена участка: <?=formatNum($item['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE'])?> ₽, кадастровый номер: <?=$item['NAME']?>)')">Оставить заявку</a>
+            <div class="buttons">
+                <?/*<a class="button" onclick="show_bron('Хочу купить участок № <?=$item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE']?> в поселке «<?=$poselok_name?>», (площадь: <?=$item['DISPLAY_PROPERTIES']['ssquare']['DISPLAY_VALUE']?> сот., цена за сотку: <?=formatNum($item['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'])?> ₽, цена участка: <?=formatNum($item['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE'])?> ₽, кадастровый номер: <?=$item['NAME']?>)')">Оставить заявку</a>
                 <a onclick="map_lo(<?=$item["ID"]?>,<?=$item['PROPERTIES']['center']['VALUE']?>, '<?=$item['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE']?>', [<?=print_points($item['DISPLAY_PROPERTIES']['nodes']['VALUE'])?>])" class="button frbtn">На карте</a>
                 */?>
                 <? if ($itemHasDetailUrl): ?><a class="button" href="<?=$item['DETAIL_PAGE_URL']?><?if($arParams["UID"] != ""){ echo "?uid=".$arParams["UID"]; }?>" class="button frbtn">Подробнее<i class="mso mi_rarr right"></i></a><? endif; ?>
-			</div>
+            </div>
 		</div>
 	</div>
 </div>
