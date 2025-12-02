@@ -661,8 +661,9 @@ h2.h1 {
     letter-spacing: normal !important;
     padding-right: 0px !important;
 }
-h2.h1 a {
-    color: inherit;
+.h1 a {
+    color: inherit !important;
+    text-decoration: none;
 }
 .footer {
     border-top:var(--color-blue) solid 8px;
@@ -1586,4 +1587,8 @@ h2 a,.vacancy_a a {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 400;
+}
+
+.catalog-section .lot-row .icn {
+    margin: 0px 20px 10px 0;
 }
