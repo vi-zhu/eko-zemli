@@ -10,7 +10,7 @@ $IBLOCK_ID = 5;
 
 $arOrder = Array("SORT"=>"ASC", "NAME"=>"ASC");   
 $arSelect = Array("ID", "NAME", "IBLOCK_ID", "DETAIL_PAGE_URL");
-$arFilter = Array("IBLOCK_ID"=>$IBLOCK_ID, "ACTIVE"=>"Y");
+$arFilter = Array("IBLOCK_ID"=>$IBLOCK_ID, "ACTIVE"=>"Y", "CHECK_PERMISSIONS" => "Y");
 $res = CIBlockElement::GetList($arOrder, $arFilter, false, false, $arSelect);
 
     while($ob = $res->GetNextElement())
