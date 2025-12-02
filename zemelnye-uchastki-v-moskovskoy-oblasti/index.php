@@ -103,7 +103,7 @@ $APPLICATION->SetPageProperty("top_background", "/imgs/uchastki_s_dorogoy.webp")
 		"SECTION_TOP_DEPTH" => "2",
 		"SECTIONS_VIEW_MODE" => "LINE",
 		"SECTIONS_SHOW_PARENT_NAME" => "Y",
-		"PAGE_ELEMENT_COUNT" => "20",
+		"PAGE_ELEMENT_COUNT" => "10",
 		"LINE_ELEMENT_COUNT" => "1",
 		"ELEMENT_SORT_FIELD" => "sort",
 		"ELEMENT_SORT_ORDER" => "asc",
