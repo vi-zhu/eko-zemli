@@ -68,7 +68,7 @@ if(array_key_exists("PAGEN_1", $_GET)) {
 }
 if(($arResult["NAME"] != "") && (is_array($arResult["IPROPERTY_VALUES"])) && $arResult["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"] != "") {
 	$arResult["META_TAGS"]["TITLE"] = "Земельные участки ".$arResult["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"].$PAGEN;
-	$arResult["META_TAGS"]["META_DESCRIPTION"] = "земельные участки ".$arResult["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"];
+	$arResult["META_TAGS"]["META_DESCRIPTION"] = $arResult["UF_SUBTITLE"] ?: "земельные участки ".$arResult["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"];
 } else {
 	$arResult["META_TAGS"]["TITLE"] = "Земельные участки в Московской области".$PAGEN;
 	$arResult["META_TAGS"]["META_DESCRIPTION"] = "земельные участки в Московской области";
@@ -78,3 +78,6 @@ $arResult["META_TAGS"]["META_DESCRIPTION"] = "Купить ".$arResult["META_TAG
 
 $APPLICATION->SetTitle($arResult["META_TAGS"]["TITLE"]);
 $APPLICATION->SetPageProperty("description", $arResult["META_TAGS"]["META_DESCRIPTION"]);
+
+$APPLICATION->SetDirProperty("h1", $arResult["UF_H1"] ?: $arResult["META_TAGS"]["TITLE"]);
+$APPLICATION->SetDirProperty("subtitle", $arResult["UF_SUBTITLE"] ?: $arResult["META_TAGS"]["META_DESCRIPTION"]);

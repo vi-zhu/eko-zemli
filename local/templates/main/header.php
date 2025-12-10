@@ -73,6 +73,11 @@ if(array_key_exists("PAGEN_1", $_GET)) {
 	$PAGEN = " — страница ".$_GET["PAGEN_1"];
 }
 
+$currentUrl = $APPLICATION->GetCurDir();
+$isVillagePage = false;
+if (preg_match('#^/zemelnye-uchastki-v-moskovskoy-oblasti/[^/]+/$#', $currentUrl)) {
+    $isVillagePage = true;
+}
 ?><!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -195,9 +200,25 @@ $APPLICATION->IncludeComponent(
 			"SITE_ID" => "m1"
 		)
 );?></div>
-<h1><?$APPLICATION->ShowTitle(false);?></h1>
-						<div class="hr"></div><div class="rassr">Рассрочка 0% без банков до 6 месяцев</div><?
-						} else {
+
+    <h1>
+        <?
+        if ($isVillagePage) {
+            $APPLICATION->ShowProperty('h1');
+        } else {
+            $APPLICATION->ShowTitle(false);
+        }
+        ?>
+    </h1>
+    <div class="hr"></div>
+    <div class="rassr">
+            <?if ($isVillagePage) {
+                $APPLICATION->ShowProperty('subtitle');
+            } else {
+                echo 'Рассрочка 0% без банков до 6 месяцев';
+            }?>
+    </div><?
+} else {
 ?><h1>Земельные участки в Московской области</h1><?
 
 $areas_count = print_lot_search_form(1);

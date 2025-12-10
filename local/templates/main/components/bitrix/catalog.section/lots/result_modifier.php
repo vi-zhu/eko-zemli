@@ -8,3 +8,9 @@
 $component = $this->getComponent();
 $arParams = $component->applyTemplateModifications();
 
+$cp = $this->__component; // объект компонента
+
+if (is_object($cp)) {
+    $cp->SetResultCacheKeys(array('UF_H1','UF_SUBTITLE'));
+}
+
