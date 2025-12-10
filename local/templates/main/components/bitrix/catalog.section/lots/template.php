@@ -258,7 +258,7 @@ $signedTemplate = $signer->sign($templateName, 'catalog.section');
 $signedParams = $signer->sign(base64_encode(serialize($arResult['ORIGINAL_PARAMETERS'])), 'catalog.section');
 ?>
 
-<?if($USER->isAdmin() && $arResult['DESCRIPTION']):?>
+<?if($arResult['DESCRIPTION']):?>
     <div class="row align-items-center lots__section-description">
         <div class="col-12">
             <?if($arResult['UF_SEO_TITLE']):?>
