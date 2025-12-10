@@ -61,7 +61,7 @@ $arResult["NAME"] = $title;
 $arResult["META_TAGS"]["ELEMENT_CHAIN"] = "Участок № ".$arResult["PROPERTIES"]["num"]["VALUE"];
 $arResult["META_TAGS"]["BROWSER_TITLE"] = "Купить земельный участок № ".$arResult["PROPERTIES"]["num"]["VALUE"]." в ".$poselok_name_p." площадью ".$_ssquare." ".sotok($_ssquare)." | Продажа земельных участков";
 $arResult["META_TAGS"]["META_DESCRIPTION"] = "Купить земельный участок № ".$arResult["PROPERTIES"]["num"]["VALUE"]." в ".$poselok_name_p." площадью ".$_ssquare." ".sotok($_ssquare)." | Продажа земельных участков в Подмосковье, ИЖС, без членских взносов от разных застройщиков недорого. Местоположение на карте, описания, цены и фото.";
-$arResult["META_TAGS"]["TITLE"] = "Земельный участок № ".$arResult["PROPERTIES"]["num"]["VALUE"]." в ".$poselok_name_p." площадью&nbsp;".$_ssquare."&nbsp;".sotok($_ssquare);
+$arResult["META_TAGS"]["TITLE"] = $arResult["IPROPERTY_VALUES"]["ELEMENT_PAGE_TITLE"] ?: "Земельный участок № ".$arResult["PROPERTIES"]["num"]["VALUE"]." в ".$poselok_name_p." площадью&nbsp;".$_ssquare."&nbsp;".sotok($_ssquare);
 //echo "<pre>"; print_r($arResult); echo "</pre>";
 
 if (is_object($component))
