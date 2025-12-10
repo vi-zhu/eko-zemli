@@ -117,7 +117,17 @@ function print_rows($vals) {
 	<div class="elem-poselok" id="<?=$actualItem['ID']?>" itemscope itemtype="http://schema.org/Product">
 		<div class="row align-items-center">
 			<div class="col-12 col-md-6 textcard">
-				<div class="label"><?if($actualItem['DISPLAY_PROPERTIES']['pays']['DISPLAY_VALUE'] != ""){?><div class="bk"><?=$actualItem['DISPLAY_PROPERTIES']['pays']['DISPLAY_VALUE']?></div><?}?><?if($actualItem['DISPLAY_PROPERTIES']['IZS']['DISPLAY_VALUE'] != "!Да"){?><div class="izs">ИЖС</div><?}?></div>
+				<div class="label">
+                    <?if($actualItem['DISPLAY_PROPERTIES']['pays']['DISPLAY_VALUE'] != ""){?>
+                        <div class="bk"><?=$actualItem['DISPLAY_PROPERTIES']['pays']['DISPLAY_VALUE']?></div>
+                    <?}?>
+                    <?if($actualItem['DISPLAY_PROPERTIES']['trigger']['DISPLAY_VALUE'] != ""){?>
+                        <div class="bk"><?=$actualItem['DISPLAY_PROPERTIES']['trigger']['DISPLAY_VALUE']?></div>
+                    <?}?>
+                    <?if($actualItem['DISPLAY_PROPERTIES']['IZS']['DISPLAY_VALUE'] != "!Да"){?>
+                        <div class="izs">ИЖС</div>
+                    <?}?>
+                </div>
 				<div class="h1"><?=$actualItem["NAME"]?></div>
 				<div class="hr"></div>
 				<div class="address">Московская область<?if($actualItem['DISPLAY_PROPERTIES']['area']['DISPLAY_VALUE'] != ""){?>, <?=$actualItem['DISPLAY_PROPERTIES']['area']['DISPLAY_VALUE']?><?}?></div>
