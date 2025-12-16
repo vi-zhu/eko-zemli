@@ -615,19 +615,6 @@ $sort = (array_key_exists("sort", $_REQUEST) && array_key_exists($_REQUEST["sort
 <div class="content mt-1 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
 	<div class="elem-poselok">
 
-		<a id="kommun"></a>
-		<div class="row align-items-center cards">
-			<div class="d-none d-md-block col-md-6"><div class="poselok-image w100" style="background-image: url('<?=($photonum_k > 0)?$arPhotos[$photonum_k - 1]:$arPhotos[2]?>')"></div></div>
-			<div class="col-12 col-md-6 text-center">
-				<div class="inner">
-					<div class="h2">Коммуникации</div>
-					<div class="slogan"><?=$poselok_facility_slogan?></div>
-					<?=print_rows($poselok_facility_items)?>
-					<a id="buy"></a>
-				</div>
-			</div>
-		</div>
-
 		<div class="h2 mb-0 mt-2">Варианты покупки</div>
 	</div>
 </div></div></div></div>
