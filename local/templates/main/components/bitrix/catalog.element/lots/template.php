@@ -415,15 +415,7 @@ Fancybox.bind('[data-fancybox="gallery"]', {
 <div class="content mt-0 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
 	<div class="elem-poselok">
 		<div class="row align-items-center cards pb-0">
-			<div class="col-12 col-md-6">
-				<div class="frame blue_form"><script data-b24-form="inline/4/club07" data-skip-moving="true">
-(function(w,d,u){
-var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-})(window,document,'https://cdn-ru.bitrix24.ru/b29466034/crm/form/loader_4.js');
-				</script></div>
-			</div>
-			<div class="col-12 col-md-6 text-center"><a id="infra"></a>
+			<div class="col-12 col-md-12 text-center"><a id="infra"></a>
 				<div class="inner">
 					<div class="h2 mt-3 mt-md-0">Инфраструктура</div>
 					<div class="slogan"><?=$poselok_infra_slogan?></div>
@@ -666,6 +658,27 @@ $sort = (array_key_exists("sort", $_REQUEST) && array_key_exists($_REQUEST["sort
 		<div class="frame mb-4 mt-4"><?$APPLICATION->IncludeFile(SITE_DIR."calc/calc.php", array("SUM" => $actualItem['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE']), array("MODE" => "html"));?></div>
 
 		<meta itemprop="name" content="<?=$name?>" />
+
+        <div class="content mt-0 mb-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-xl-10 offset-xl-1">
+                        <div class="elem-poselok">
+                            <div class="row align-items-center cards pb-0">
+                                <div class="col-12 col-md-12">
+                                    <div class="frame blue_form"><script data-b24-form="inline/4/club07" data-skip-moving="true">
+                                            (function(w,d,u){
+                                                var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                                                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                                            })(window,document,'https://cdn-ru.bitrix24.ru/b29466034/crm/form/loader_4.js');
+                                        </script></div>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <?
 global $arrNearFilter;
