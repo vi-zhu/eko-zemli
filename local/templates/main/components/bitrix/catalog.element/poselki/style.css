@@ -298,6 +298,19 @@
 	text-align: left;
 }
 
+.gradprice_cont .caption .sale-text-mini {
+	font-size: 14px;
+	color: #ff0200;
+}
+
+.gradprice_cont .caption .old-price {
+	text-decoration: line-through;
+	font-weight: 300;
+}
+
+.baloon .infoline {
+	overflow: visible !important;
+}
 
 @media (min-width: 767.98px) {
 	.yandexbtn { display: none; }

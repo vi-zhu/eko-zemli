@@ -207,58 +207,162 @@ if($actualItem['PROPERTIES']['video']['VALUE'] != "") {
 	</div>
 </div></div></div></div>
 <div class="canvas">
-	<div id="map_lands" style="height: 500px; width: 100%;"></div>
-	<div class="content mt-0 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
-		<div class="elem-poselok">
-			<div class="container lands_legend">
-				<div class="lands_title">Стоимость земли:</div>
-				<div class="row_colors"><?
-			$units = CIBlockElement::GetList(Array("ID" => "ASC"), Array("IBLOCK_ID" => 6, "ACTIVE" => "Y", "PROPERTY_poselok" => $actualItem["ID"]), false, false, Array('ID', 'PROPERTY_price', 'PROPERTY_status'));
-			$prices = [];
-			$colors = [];
-			while($unit = $units->GetNext())
-			{
-				if($unit['PROPERTY_PRICE_VALUE'] > 0 && !in_array($unit['PROPERTY_PRICE_VALUE'], $prices)) {
-					if($unit['PROPERTY_STATUS_VALUE'] != 'продан') {
-						$prices[] = $unit['PROPERTY_PRICE_VALUE'];
-					}
-				}
-			}
+    <div id="map_lands" style="height: 500px; width: 100%;"></div>
+    <div class="content mt-0 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
+                    <div class="elem-poselok">
+                        <div class="container lands_legend">
+                            <div class="lands_title">Стоимость земли:</div>
+                            <div class="row_colors"><?
+                                $units = CIBlockElement::GetList(Array("ID" => "ASC"), Array("IBLOCK_ID" => 6, "ACTIVE" => "Y", "PROPERTY_poselok" => $actualItem["ID"]), false, false, Array('ID', 'PROPERTY_price', 'PROPERTY_old_price', 'PROPERTY_text_sale', 'PROPERTY_status'));
+                                $prices = [];
+                                $oldPrices = [];
+                                $saleTexts = [];
+                                $colors = [];
+                                while($unit = $units->GetNext())
+                                {
+                                    if($unit['PROPERTY_PRICE_VALUE'] > 0 && !in_array($unit['PROPERTY_PRICE_VALUE'], $prices)) {
+                                        if($unit['PROPERTY_STATUS_VALUE'] != 'продан') {
+                                            $prices[] = $unit['PROPERTY_PRICE_VALUE'];
+                                        }
+                                        // Сохраняем старую цену, если есть
+                                        if($unit['PROPERTY_OLD_PRICE_VALUE'] > 0) {
+                                            $oldPrices[$unit['PROPERTY_PRICE_VALUE']] = $unit['PROPERTY_OLD_PRICE_VALUE'];
+                                        }
 
-			sort($prices);
-			$pCount = count($prices);
+                                        // Сохраняем текст акции, если есть
+                                        if($unit['PROPERTY_TEXT_SALE_VALUE']) {
+                                            $saleTexts[$unit['PROPERTY_PRICE_VALUE']] = $unit['PROPERTY_TEXT_SALE_VALUE'];
+                                        }
+                                    }
+                                }
 
-			global $arrPriceColors;
-			if($pCount > 0) {
-				fill_arrPriceColors($prices);
-			}
+                                sort($prices);
+                                $pCount = count($prices);
 
-			if($pCount > 0 && $pCount <= 6) {
-				for ($i = 0; $i < $pCount; $i++) {
-					$colors[$prices[$i]] = hsl2hex(array(($i/$pCount) * 0.9, 1, (0.45 + 0.15*($i % 2))));
-					?><div class="ll_item position-relative">
-						<div class="ll_color" style="background: <?=$colors[$prices[$i]]?>;"></div>
-						<div class="ll_label"><?=formatNum($prices[$i])?> ₽/сотка</div>
-					</div><?
-				}
-			} else if ($pCount > 6) {
-				$lotpricedot = ($prices[$pCount-1] - $prices[0])/14;
-				$lotpricedelta = $prices[$pCount-1] - $prices[0];
-				for ($i = 0; $i < $pCount; $i++) {
-					$colors[$prices[$i]] = hsl2hex(array(getPriceColor($prices[$i]), 1, 0.5));
-				}
-				?>
-					<div class="gradprice_cont">
-						<div class="row gradprice_bar"><?for($i = 0; $i < count($arrPriceColors); $i++) {?><div class="col" style="background-image: linear-gradient(90deg, hsl(<?=$arrPriceColors[$i]["from"]?>, 100%, 50%), hsl(<?=$arrPriceColors[$i]["to"]?>, 100%, 50%));"></div><?}?></div>
-						<div class="row dots"><div class="col"><div class="leftdot"></div></div><?for($i = 1; $i <= 5; $i++) {?><div class="col<?if($i != 3) {echo " d-none d-sm-block";}?>"><div class="centerdot"></div></div><?}?><div class="col"><div class="rightdot"></div></div></div>
-						<div class="row caption"><div class="col text-left"><?=formatNum($prices[0])?><br><span class="pdedizm">₽/сотка</span></div><?for($i = 1; $i <= 5; $i++) {?><div class="col text-center<?if($i != 3) {echo " d-none d-sm-block";}?>"><?=formatNum(get_reper_price($prices[0], $lotpricedot, $i))?><br><span class="pdedizm">₽/сотка</span></div><?}?><div class="col text-right"><?=formatNum($prices[$pCount-1])?><br><span class="pdedizm">₽/сотка</span></div></div>
-					</div>
-				<?
-			}
-				?></div>
-			</div>
-		</div>
-	</div></div></div></div>
+                                global $arrPriceColors;
+                                if($pCount > 0) {
+                                    fill_arrPriceColors($prices);
+                                }
+
+                                if($pCount > 0 && $pCount <= 6) {
+                                    for ($i = 0; $i < $pCount; $i++) {
+                                        $currentPrice = $prices[$i];
+                                        $hasOldPrice = isset($oldPrices[$currentPrice]);
+                                        $hasSaleText = isset($saleTexts[$currentPrice]);
+
+                                        $colors[$prices[$i]] = hsl2hex(array(($i/$pCount) * 0.9, 1, (0.45 + 0.15*($i % 2))));
+                                        ?><div class="ll_item position-relative">
+                                        <div class="ll_color" style="background: <?=$colors[$currentPrice]?>;"></div>
+                                        <div class="ll_label">
+                                            <?if($hasOldPrice):?>
+                                                <div class="price-with-discount">
+                                    <span class="old-price" style="text-decoration: line-through; color: #999; font-size: 0.9em;">
+                                        <?=formatNum($oldPrices[$currentPrice])?> ₽/сотка
+                                    </span>
+                                                    <span class="new-price" style="color: #d60000; font-weight: bold;">
+                                        <?=formatNum($currentPrice)?> ₽/сотка
+                                    </span>
+                                                </div>
+                                            <?else:?>
+                                                <?=formatNum($currentPrice)?> ₽/сотка
+                                            <?endif;?>
+
+                                            <?if($hasSaleText):?>
+                                                <div class="sale-text" style="color: #ff0000; margin-top: 2px;">
+                                                    <?=$saleTexts[$currentPrice]?>
+                                                </div>
+                                            <?endif;?>
+
+                                        </div>
+                                        </div><?
+                                    }
+                                } else if ($pCount > 6) {
+                                    $lotpricedot = ($prices[$pCount-1] - $prices[0])/14;
+                                    $lotpricedelta = $prices[$pCount-1] - $prices[0];
+                                    for ($i = 0; $i < $pCount; $i++) {
+                                        $colors[$prices[$i]] = hsl2hex(array(getPriceColor($prices[$i]), 1, 0.5));
+                                    }
+                                    ?>
+                                    <div class="gradprice_cont">
+                                        <div class="row gradprice_bar"><?for($i = 0; $i < count($arrPriceColors); $i++) {?><div class="col" style="background-image: linear-gradient(90deg, hsl(<?=$arrPriceColors[$i]["from"]?>, 100%, 50%), hsl(<?=$arrPriceColors[$i]["to"]?>, 100%, 50%));"></div><?}?></div>
+                                        <div class="row dots"><div class="col"><div class="leftdot"></div></div><?for($i = 1; $i <= 5; $i++) {?><div class="col<?if($i != 3) {echo " d-none d-sm-block";}?>"><div class="centerdot"></div></div><?}?><div class="col"><div class="rightdot"></div></div></div>
+                                        <div class="row caption">
+                                            <div class="col text-left">
+                                                <?=formatNum($prices[0])?><br>
+                                                <?if(isset($oldPrices[$prices[0]])):?>
+                                                    <span class="old-price">
+                                                    <?=formatNum($oldPrices[$prices[0]])?>
+                                                </span>
+                                                    <br>
+                                                <?endif;?>
+                                                <span class="pdedizm">₽/сотка</span>
+                                                <?if(isset($saleTexts[$prices[0]])):?>
+                                                    <div class="sale-text-mini">
+                                                        <?=$saleTexts[$prices[0]]?>
+                                                    </div>
+                                                <?endif;?>
+                                            </div>
+                                            <?for($i = 1; $i <= 5; $i++) {?>
+                                                <?php
+                                                $repPrice = get_reper_price($prices[0], $lotpricedot, $i);
+                                                ?>
+                                                <div class="col text-center<?if($i != 3) {echo " d-none d-sm-block";}?>">
+                                                    <?php
+                                                    // Находим ближайшую реальную цену для отображения скидки
+                                                    $closestPrice = null;
+                                                    $closestOldPrice = null;
+                                                    $closestSaleText = null;
+                                                    foreach($prices as $price) {
+                                                        if(abs($price - $repPrice) <= $lotpricedot) {
+                                                            $closestPrice = $price;
+                                                            if(isset($oldPrices[$price])) {
+                                                                $closestOldPrice = $oldPrices[$price];
+                                                            }
+                                                            if(isset($saleTexts[$price])) {
+                                                                $closestSaleText = $saleTexts[$price];
+                                                            }
+                                                            break;
+                                                        }
+                                                    }
+                                                    ?>
+
+                                                    <?=formatNum($repPrice)?><br>
+                                                    <?if($closestOldPrice):?>
+                                                        <span class="old-price">
+                                                            <?=formatNum($closestOldPrice)?>
+                                                        </span><br>
+                                                    <?endif;?>
+                                                    <span class="pdedizm">₽/сотка</span>
+
+                                                    <?if($closestSaleText):?>
+                                                        <div class="sale-text-mini">
+                                                            <?=$closestSaleText?>
+                                                        </div>
+                                                    <?endif;?>
+                                                </div>
+                                            <?}?>
+                                            <div class="col text-right">
+                                                <?=formatNum($prices[$pCount-1])?><br>
+                                                <?if(isset($oldPrices[$prices[$pCount-1]])):?>
+                                                    <span class="old-price">
+                                                        <?=formatNum($oldPrices[$prices[$pCount-1]])?>
+                                                    </span><br>
+                                                <?endif;?>
+                                                <span class="pdedizm">₽/сотка</span>
+                                                <?if(isset($saleTexts[$prices[$pCount-1]])):?>
+                                                    <div class="sale-text-mini">
+                                                        <?=$saleTexts[$prices[$pCount-1]]?>
+                                                    </div>
+                                                <?endif;?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?
+                                }
+                                ?></div>
+                        </div>
+                    </div>
+                </div></div></div></div>
 </div>
 
 <div class="content mt-0 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
