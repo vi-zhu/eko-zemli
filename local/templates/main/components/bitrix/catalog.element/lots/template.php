@@ -810,6 +810,49 @@ if(count($arrNearFilter['ID']) > 0) {
 ?>
 	</div></div></div></div>
 </div>
+
+<div class="content mt-5 mb-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-xl-10 offset-xl-1">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-7">
+                        <div class="h1">Почему выбирают ЭКО Земли</div>
+                        <div class="hr mb-5"></div>
+                    </div>
+                </div>
+                <div class="row buy">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="align-items-center rtitle">
+                            <div class="icon"><i class="mso mi mi_age"></i></div><div class="title">10 лет на рынке</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="align-items-center rtitle">
+                            <div class="icon"><i class="mso mi mi_village"></i></div><div class="title">Более 1500 проданных участков</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="align-items-center rtitle">
+                            <div class="icon"><i class="mso mi mi_security"></i></div><div class="title">Юридическое сопровождение сделки</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="align-items-center rtitle">
+                            <div class="icon"><i class="mso mi mi_target"></i></div><div class="title">Работаем без посредников</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="align-items-center rtitle">
+                            <div class="icon"><i class="mso mi mi_about"></i></div><div class="title">Все документы на землю готовы</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="content mt-5 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
 	<div class="elem-poselok">
 <?} else {
