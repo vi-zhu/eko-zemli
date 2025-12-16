@@ -590,27 +590,6 @@ $sort = (array_key_exists("sort", $_REQUEST) && array_key_exists($_REQUEST["sort
 ?>
 	</div></div></div></div>
 </div>
-<div class="content mt-1 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
-	<div class="elem-poselok">
-		<a id="place"></a>
-		<div class="row align-items-center cards">
-			<div class="col-12 col-md-6 text-center">
-				<div class="inner">
-					<div class="h2">Расположение</div>
-					<div class="slogan"><?=$poselok_placement_slogan?></div>
-					<div class="copts"><div class="row">
-						<?if($actualItem['DISPLAY_PROPERTIES']['mkad']['DISPLAY_VALUE'] > 0){?><div class="col-6 copt"><div class="big"><span><?=$actualItem['DISPLAY_PROPERTIES']['mkad']['DISPLAY_VALUE']?></span> км</div><div>Расстояние от МКАД</div></div><?}?>
-						<?if($actualItem['DISPLAY_PROPERTIES']['mmkad']['DISPLAY_VALUE'] > 0){?><div class="col-6 copt"><div class="big"><span><?=$actualItem['DISPLAY_PROPERTIES']['mmkad']['DISPLAY_VALUE']?></span> <?=minut($actualItem['DISPLAY_PROPERTIES']['mmkad']['DISPLAY_VALUE'])?></div><div>Время в пути</div></div><?}?>
-					</div></div>
-					<?=print_rows($poselok_placement_items)?>
-					<div class="yandexbtn buttons"><a target="_blank" href="yandexnavi://build_route_on_map?lat_to=<?=str_replace(', ', '&lon_to=', ''.$actualItem['PROPERTIES']['map_navig']['VALUE'])?>" class="button"><i class="mso mi mi_navig"></i>Маршрут в Яндекс Навигаторе</a></div>
-				</div>
-			</div>
-			<div class="d-none d-md-block col-md-6"><div class="poselok-image w100" style="background-image: url('<?=($photonum_r > 0)?$arPhotos[$photonum_r - 1]:$arPhotos[1]?>')"></div></div>
-		</div>
-
-	</div>
-</div></div></div></div>
 <div id="map_location" style="height: 500px; width: 100%;"></div>
 <div class="canvas">
 	<div class="content mt-0 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
