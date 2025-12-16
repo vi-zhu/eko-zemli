@@ -216,6 +216,7 @@ foreach($icons as $key=>$icon) {
 					<?if($actualItem['DISPLAY_PROPERTIES']['use_for']['DISPLAY_VALUE'] != "") {?>Разрешенное использование земли: <strong class="wrap"><?=$actualItem['DISPLAY_PROPERTIES']['use_for']['DISPLAY_VALUE']?></strong>.<?}?>
 					<?if($actualItem['DISPLAY_PROPERTIES']['kadastr_price']['DISPLAY_VALUE'] > 0) {?>Земельный налог: <?=formatNum($actualItem['DISPLAY_PROPERTIES']['kadastr_price']['DISPLAY_VALUE']*0.003)?> ₽ в год.<?}?>
 					</p><?if($kadastr != "") {?><p>Кадастровый номер участка: <strong><?=$kadastr?></strong>.</p><?}?>
+                    <?=$arResult['DETAIL_TEXT'];?>
 				</div>
 				<div class="buttons">
 					<a class="button" onclick="show_bron('Хочу купить <?=$actualItem["NAME"]?>, (площадь: <?=$_ssquare?> сот., цена за сотку: <?=formatNum($actualItem['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'])?> ₽, цена участка: <?=formatNum($actualItem['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE'])?> ₽, кадастровый номер: <?=$kadastr?>)')">Оставить заявку</a><?if($poselok_url != "") {?><a href="<?=$poselok_url?><?if($_GET["uid"] != ""){ echo "?uid=".$_GET["uid"]; }?>" class="button">О поселке<i class="mso mi_rarr right"></i></a><?}?><a href="#ipoteka" class="button frbtn">Ипотека</a>
