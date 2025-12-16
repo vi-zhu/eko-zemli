@@ -43,6 +43,19 @@
     font-size: 16px;
 }
 
+.poselok-card.small-card .price_ot {
+	border-bottom: none;
+}
+
+.poselok-card.small-card .distance {
+	font-weight: 400;
+	margin-top: 20px;
+	line-height: 22px;
+	font-size: 22px;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+
 @media (max-width: 575.98px) {
     .poselok-card.small-card .textcard {
         margin-top: 0;
