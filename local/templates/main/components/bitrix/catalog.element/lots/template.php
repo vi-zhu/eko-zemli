@@ -414,16 +414,6 @@ Fancybox.bind('[data-fancybox="gallery"]', {
 
 <div class="content mt-0 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
 	<div class="elem-poselok">
-		<div class="row align-items-center cards pb-0">
-			<div class="col-12 col-md-12 text-center"><a id="infra"></a>
-				<div class="inner">
-					<div class="h2 mt-3 mt-md-0">Инфраструктура</div>
-					<div class="slogan"><?=$poselok_infra_slogan?></div>
-					<?=print_rows($poselok_infra_items)?>
-					<a id="lots"></a>
-				</div>
-			</div>
-		</div>
 		<div class="h2 mb-0 mt-4 mt-md-1">Другие участки в <?=$poselok_infra_name_p?></div>
 	</div>
 </div></div></div></div>
