@@ -612,15 +612,8 @@ $sort = (array_key_exists("sort", $_REQUEST) && array_key_exists($_REQUEST["sort
 	</div>
 </div></div></div></div>
 <div id="map_location" style="height: 500px; width: 100%;"></div>
-<div class="content mt-1 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
-	<div class="elem-poselok">
-
-		<div class="h2 mb-0 mt-2">Варианты покупки</div>
-	</div>
-</div></div></div></div>
 <div class="canvas">
 	<div class="content mt-0 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
-		<?$APPLICATION->IncludeFile(SITE_DIR."include/buy.php", array(), array("MODE" => "html"));?>
 		<div class="calc mt-4 mt-md-3 mt-lg-2 mt-xl-1 mb-5"><a class="button" href="#ipoteka">Калькулятор ипотеки и рассрочки</a></div>
 	</div></div></div></div>
 </div>
