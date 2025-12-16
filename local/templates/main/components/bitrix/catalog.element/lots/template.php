@@ -55,6 +55,7 @@ if(!$poselokID) {
 $poselok_name = "";
 $poselok_img = "";
 $poselok_pay = "";
+$poselok_trigger = "";
 $poselok_url = "";
 $poselok_facility_slogan = "";
 $poselok_facility_icons = "";
@@ -68,7 +69,7 @@ $poselok_infra_name_p = "";
 $poselok_name_p = "";
 $poselok_code = "";
 
-$poselok_obj = CIBlockElement::GetList(Array("ID" => "ASC"), Array("IBLOCK_ID" => 5, "ACTIVE" => "Y", "ID" => $poselokID), false, false, Array('IBLOCK_ID ', 'ID', 'NAME', 'PROPERTY_MORE_PHOTO', 'DETAIL_PICTURE', 'PREVIEW_PICTURE', 'PROPERTY_PHOTONUM', 'PROPERTY_PHOTONUM_K', 'PROPERTY_PHOTONUM_P', 'PROPERTY_PHOTONUM_R', 'PROPERTY_PAYS', 'PROPERTY_FACILITY_SLOGAN', 'PROPERTY_FACILITY_ICONS', 'PROPERTY_FACILITY_ITEMS', 'PROPERTY_INFRA_SLOGAN', 'PROPERTY_INFRA_ITEMS', 'PROPERTY_PLACEMENT_SLOGAN', 'PROPERTY_PLACEMENT_ITEMS', 'PROPERTY_NATURE_SLOGAN', 'PROPERTY_NATURE_ITEMS', 'DETAIL_PAGE_URL', 'PROPERTY_NAME_P'));
+$poselok_obj = CIBlockElement::GetList(Array("ID" => "ASC"), Array("IBLOCK_ID" => 5, "ACTIVE" => "Y", "ID" => $poselokID), false, false, Array('IBLOCK_ID ', 'ID', 'NAME', 'PROPERTY_MORE_PHOTO', 'DETAIL_PICTURE', 'PREVIEW_PICTURE', 'PROPERTY_PHOTONUM', 'PROPERTY_PHOTONUM_K', 'PROPERTY_PHOTONUM_P', 'PROPERTY_PHOTONUM_R', 'PROPERTY_PAYS', 'PROPERTY_TRIGGER','PROPERTY_FACILITY_SLOGAN', 'PROPERTY_FACILITY_ICONS', 'PROPERTY_FACILITY_ITEMS', 'PROPERTY_INFRA_SLOGAN', 'PROPERTY_INFRA_ITEMS', 'PROPERTY_PLACEMENT_SLOGAN', 'PROPERTY_PLACEMENT_ITEMS', 'PROPERTY_NATURE_SLOGAN', 'PROPERTY_NATURE_ITEMS', 'DETAIL_PAGE_URL', 'PROPERTY_NAME_P'));
 $poselok_info = $poselok_obj->GetNext();
 
 $arPhotos = array();
@@ -88,6 +89,7 @@ if($poselok_info) {
 	$property_num = $poselok_info['PROPERTY_PHOTONUM_VALUE'];
 	$poselok_name = str_replace(" ", "&nbsp;", $poselok_info["NAME"]);
 	$poselok_pay = $poselok_info["PROPERTY_PAYS_VALUE"];
+    $poselok_trigger = $poselok_info["PROPERTY_TRIGGER_VALUE"];
 	$poselok_url = $poselok_info["DETAIL_PAGE_URL"];
 	$poselok_facility_slogan = $poselok_info["PROPERTY_FACILITY_SLOGAN_VALUE"];
 	$poselok_facility_icons = $poselok_info["PROPERTY_FACILITY_ICONS_VALUE"];
@@ -153,7 +155,11 @@ function print_rows($vals) {
 	<div class="elem-poselok" id="<?=$actualItem['ID']?>" itemscope itemtype="http://schema.org/Product">
 		<div class="row align-items-center">
 			<div class="col-12 col-md-6 textcard">
-				<div class="label"><?if($poselok_pay != ""){?><div class="bk"><?=$poselok_pay?></div><?}?><?if($actualItem['DISPLAY_PROPERTIES']['IZS']['DISPLAY_VALUE'] != "!Да"){?><div class="izs">ИЖС</div><?}?></div>
+				<div class="label">
+                    <?if($poselok_pay != ""){?><div class="bk"><?=$poselok_pay?></div><?}?>
+                    <?if($poselok_trigger != ""){?><div class="bk"><?=$poselok_trigger?></div><?}?>
+                    <?if($actualItem['DISPLAY_PROPERTIES']['IZS']['DISPLAY_VALUE'] != "!Да"){?><div class="izs">ИЖС</div><?}?>
+                </div>
 				<div class="title_lot align-items-center">
 					<div class="h1"><?=$actualItem["NAME"]?></div>
 					<div class="izbrn"><?
