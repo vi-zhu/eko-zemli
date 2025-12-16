@@ -69,7 +69,7 @@ $poselok_infra_name_p = "";
 $poselok_name_p = "";
 $poselok_code = "";
 
-$poselok_obj = CIBlockElement::GetList(Array("ID" => "ASC"), Array("IBLOCK_ID" => 5, "ACTIVE" => "Y", "ID" => $poselokID), false, false, Array('IBLOCK_ID ', 'ID', 'NAME', 'PROPERTY_MORE_PHOTO', 'DETAIL_PICTURE', 'PREVIEW_PICTURE', 'PROPERTY_PHOTONUM', 'PROPERTY_PHOTONUM_K', 'PROPERTY_PHOTONUM_P', 'PROPERTY_PHOTONUM_R', 'PROPERTY_PAYS', 'PROPERTY_TRIGGER','PROPERTY_FACILITY_SLOGAN', 'PROPERTY_FACILITY_ICONS', 'PROPERTY_FACILITY_ITEMS', 'PROPERTY_INFRA_SLOGAN', 'PROPERTY_INFRA_ITEMS', 'PROPERTY_PLACEMENT_SLOGAN', 'PROPERTY_PLACEMENT_ITEMS', 'PROPERTY_NATURE_SLOGAN', 'PROPERTY_NATURE_ITEMS', 'DETAIL_PAGE_URL', 'PROPERTY_NAME_P'));
+$poselok_obj = CIBlockElement::GetList(Array("ID" => "ASC"), Array("IBLOCK_ID" => 5, "ACTIVE" => "Y", "ID" => $poselokID), false, false, Array('IBLOCK_ID ', 'ID', 'NAME', 'PROPERTY_MORE_PHOTO', 'DETAIL_PICTURE', 'PREVIEW_PICTURE', 'PROPERTY_PHOTONUM', 'PROPERTY_PHOTONUM_K', 'PROPERTY_PHOTONUM_P', 'PROPERTY_PHOTONUM_R', 'PROPERTY_PAYS', 'PROPERTY_TRIGGER','PROPERTY_FACILITY_SLOGAN', 'PROPERTY_FACILITY_ICONS', 'PROPERTY_FACILITY_ITEMS', 'PROPERTY_INFRA_SLOGAN', 'PROPERTY_INFRA_ITEMS', 'PROPERTY_PLACEMENT_SLOGAN', 'PROPERTY_PLACEMENT_ITEMS', 'PROPERTY_NATURE_SLOGAN', 'PROPERTY_NATURE_ITEMS', 'DETAIL_PAGE_URL', 'PROPERTY_NAME_P', 'PROPERTY_SEO_ANCHOR_FOR_SIMILAR_VILLAGES'));
 $poselok_info = $poselok_obj->GetNext();
 
 $arPhotos = array();
@@ -100,6 +100,7 @@ if($poselok_info) {
 	$poselok_placement_items = $poselok_info["PROPERTY_PLACEMENT_ITEMS_VALUE"];
 	$poselok_nature_slogan = $poselok_info["PROPERTY_NATURE_SLOGAN_VALUE"];
 	$poselok_nature_items = $poselok_info["PROPERTY_NATURE_ITEMS_VALUE"];
+	$poselok_seo_anchor = $poselok_info["PROPERTY_SEO_ANCHOR_FOR_SIMILAR_VILLAGES_VALUE"];
 	$photonum_p = $poselok_info['PROPERTY_PHOTONUM_P_VALUE'];
 	$photonum_k = $poselok_info['PROPERTY_PHOTONUM_K_VALUE'];
 	$photonum_r = $poselok_info['PROPERTY_PHOTONUM_R_VALUE'];
@@ -672,7 +673,7 @@ $arrNearFilter = get_nearest_filter($poselokID, $actualItem["PROPERTIES"]["cente
 
 if(count($arrNearFilter['ID']) > 0) {
 ?>
-		<div class="h2 mb-0 mt-5">Соседние поселки</div>
+		<div class="h2 mb-0 mt-5">Похожие поселки</div>
 	</div>
 </div></div></div></div>
 <div class="canvas">
@@ -808,6 +809,11 @@ if(count($arrNearFilter['ID']) > 0) {
 					$component
 				);
 ?>
+                    <?if($poselok_seo_anchor):?>
+                        <div class="seo_anchor_similar_villages">
+                            <p><?=$poselok_seo_anchor;?></p>
+                        </div>
+                    <?endif;?>
 	</div></div></div></div>
 </div>
 
