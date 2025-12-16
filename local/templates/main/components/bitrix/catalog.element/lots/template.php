@@ -68,8 +68,9 @@ $poselok_nature_items = "";
 $poselok_infra_name_p = "";
 $poselok_name_p = "";
 $poselok_code = "";
+$poselok_description = "";
 
-$poselok_obj = CIBlockElement::GetList(Array("ID" => "ASC"), Array("IBLOCK_ID" => 5, "ACTIVE" => "Y", "ID" => $poselokID), false, false, Array('IBLOCK_ID ', 'ID', 'NAME', 'PROPERTY_MORE_PHOTO', 'DETAIL_PICTURE', 'PREVIEW_PICTURE', 'PROPERTY_PHOTONUM', 'PROPERTY_PHOTONUM_K', 'PROPERTY_PHOTONUM_P', 'PROPERTY_PHOTONUM_R', 'PROPERTY_PAYS', 'PROPERTY_TRIGGER','PROPERTY_FACILITY_SLOGAN', 'PROPERTY_FACILITY_ICONS', 'PROPERTY_FACILITY_ITEMS', 'PROPERTY_INFRA_SLOGAN', 'PROPERTY_INFRA_ITEMS', 'PROPERTY_PLACEMENT_SLOGAN', 'PROPERTY_PLACEMENT_ITEMS', 'PROPERTY_NATURE_SLOGAN', 'PROPERTY_NATURE_ITEMS', 'DETAIL_PAGE_URL', 'PROPERTY_NAME_P', 'PROPERTY_SEO_ANCHOR_FOR_SIMILAR_VILLAGES'));
+$poselok_obj = CIBlockElement::GetList(Array("ID" => "ASC"), Array("IBLOCK_ID" => 5, "ACTIVE" => "Y", "ID" => $poselokID), false, false, Array('IBLOCK_ID ', 'ID', 'NAME', 'PROPERTY_MORE_PHOTO', 'DETAIL_PICTURE', 'DETAIL_TEXT', 'PREVIEW_PICTURE', 'PROPERTY_PHOTONUM', 'PROPERTY_PHOTONUM_K', 'PROPERTY_PHOTONUM_P', 'PROPERTY_PHOTONUM_R', 'PROPERTY_PAYS', 'PROPERTY_TRIGGER','PROPERTY_FACILITY_SLOGAN', 'PROPERTY_FACILITY_ICONS', 'PROPERTY_FACILITY_ITEMS', 'PROPERTY_INFRA_SLOGAN', 'PROPERTY_INFRA_ITEMS', 'PROPERTY_PLACEMENT_SLOGAN', 'PROPERTY_PLACEMENT_ITEMS', 'PROPERTY_NATURE_SLOGAN', 'PROPERTY_NATURE_ITEMS', 'DETAIL_PAGE_URL', 'PROPERTY_NAME_P', 'PROPERTY_SEO_ANCHOR_FOR_SIMILAR_VILLAGES'));
 $poselok_info = $poselok_obj->GetNext();
 
 $arPhotos = array();
@@ -107,6 +108,7 @@ if($poselok_info) {
 	$poselok_infra_name_p = $poselok_info['PROPERTY_NAME_P_VALUE'];
 	$poselok_name_p = $poselok_infra_name_p;
 	$poselok_code = $poselok_info['CODE'];
+	$poselok_description = $poselok_info['DETAIL_TEXT'];
 
 	if($poselok_info["DETAIL_PICTURE"] > 0) {
 		$poselok_img = CFile::GetPath($poselok_info["DETAIL_PICTURE"]);
@@ -411,6 +413,24 @@ Fancybox.bind('[data-fancybox="gallery"]', {
 		</div>
 	</div></div></div></div>
 </div>
+
+<?if($poselok_description):?>
+    <div class="content mt-0 mb-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-xl-10 offset-xl-1">
+                    <div class="elem-poselok">
+                        <a id="opisanie"></a>
+                        <div class="h2 mb-0 mt-4 mt-md-1">Описание поселка</div>
+                        <div class="mb-4 mt-4">
+                            <?=$poselok_description;?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?endif;?>
 
 <div class="content mt-0 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
 	<div class="elem-poselok">
