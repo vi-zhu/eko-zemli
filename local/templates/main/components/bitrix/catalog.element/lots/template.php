@@ -218,9 +218,16 @@ foreach($icons as $key=>$icon) {
 					</p><?if($kadastr != "") {?><p>Кадастровый номер участка: <strong><?=$kadastr?></strong>.</p><?}?>
                     <?=$arResult['DETAIL_TEXT'];?>
 				</div>
+
 				<div class="buttons">
-					<a class="button" onclick="show_bron('Хочу купить <?=$actualItem["NAME"]?>, (площадь: <?=$_ssquare?> сот., цена за сотку: <?=formatNum($actualItem['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'])?> ₽, цена участка: <?=formatNum($actualItem['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE'])?> ₽, кадастровый номер: <?=$kadastr?>)')">Оставить заявку</a><?if($poselok_url != "") {?><a href="<?=$poselok_url?><?if($_GET["uid"] != ""){ echo "?uid=".$_GET["uid"]; }?>" class="button">О поселке<i class="mso mi_rarr right"></i></a><?}?><a href="#ipoteka" class="button frbtn">Ипотека</a>
+					<a class="button" onclick="show_bron('Хочу купить <?=$actualItem["NAME"]?>, (площадь: <?=$_ssquare?> сот., цена за сотку: <?=formatNum($actualItem['DISPLAY_PROPERTIES']['price']['DISPLAY_VALUE'])?> ₽, цена участка: <?=formatNum($actualItem['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE'])?> ₽, кадастровый номер: <?=$kadastr?>)')">Оставить заявку</a>
+                    <a onclick="map_lo(<?=$actualItem["ID"]?>,<?=$actualItem['PROPERTIES']['center']['VALUE']?>, '<?=$actualItem['DISPLAY_PROPERTIES']['num']['DISPLAY_VALUE']?>', [<?=print_points($actualItem['DISPLAY_PROPERTIES']['nodes']['VALUE'])?>])" class="button frbtn">Посмотреть на карте</a>
+                    <?if($poselok_url != "") {?>
+                    <a href="<?=$poselok_url?><?if($_GET["uid"] != ""){ echo "?uid=".$_GET["uid"]; }?>" class="button">О поселке<i class="mso mi_rarr right"></i></a>
+                    <?}?>
+                    <a href="#ipoteka" class="button frbtn">Ипотека</a>
 				</div>
+                <div id="itemrow<?=$actualItem["ID"]?>"></div>
 			</div>
 			<div class="col-12 col-md-6"><?
 if(is_array($arPhotos) || $poselok_img != "") {
