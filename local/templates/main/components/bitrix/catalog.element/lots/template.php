@@ -252,7 +252,7 @@ Fancybox.bind('[data-fancybox="gallery"]', {
 				</div><a id="plan"></a>
 			</div>
 		</div>
-		<div class="h2 mb-0">Участок на Генплане</div>
+		<h2 class="h2 mb-0">Участок на Генплане</h2>
 	</div>
 </div></div></div></div>
 <div class="canvas">
@@ -422,7 +422,7 @@ Fancybox.bind('[data-fancybox="gallery"]', {
                 <div class="col-12 col-xl-10 offset-xl-1">
                     <div class="elem-poselok">
                         <a id="opisanie"></a>
-                        <div class="h2 mb-0 mt-4 mt-md-1">Описание поселка</div>
+                        <h2 class="h2 mb-0 mt-4 mt-md-1">Описание поселка</h2>
                         <div class="mb-4 mt-4">
                             <?=$poselok_description;?>
                         </div>
@@ -435,7 +435,7 @@ Fancybox.bind('[data-fancybox="gallery"]', {
 
 <div class="content mt-0 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
 	<div class="elem-poselok">
-		<div class="h2 mb-0 mt-4 mt-md-1">Другие участки в <?=$poselok_infra_name_p?></div>
+		<h2 class="h2 mb-0 mt-4 mt-md-1">Другие участки в <?=$poselok_infra_name_p?></h2>
 	</div>
 </div></div></div></div>
 <div class="canvas">
@@ -611,7 +611,7 @@ $sort = (array_key_exists("sort", $_REQUEST) && array_key_exists($_REQUEST["sort
 	<div class="elem-poselok">
 
 		<a id="ipoteka"></a>
-		<div class="h2 mb-4 mt-2">Ипотека и рассрочка</div>
+		<h2 class="h2 mb-4 mt-2">Ипотека и рассрочка</h2>
 
 		<div class="frame mb-4 mt-4"><?$APPLICATION->IncludeFile(SITE_DIR."calc/calc.php", array("SUM" => $actualItem['DISPLAY_PROPERTIES']['sprice']['DISPLAY_VALUE']), array("MODE" => "html"));?></div>
 
