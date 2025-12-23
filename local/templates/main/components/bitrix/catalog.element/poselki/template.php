@@ -583,22 +583,10 @@ $sort = (array_key_exists("sort", $_REQUEST) && array_key_exists($_REQUEST["sort
 	<div class="content mt-0 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
 		<?$APPLICATION->IncludeFile(SITE_DIR."include/buy.php", array(), array("MODE" => "html"));?>
 		<div class="calc mt-4 mt-md-3 mt-lg-2 mt-xl-1 mb-5"><a class="button" href="/o-nas/calc/<?if($_GET["uid"] != ""){ echo "?uid=".$_GET["uid"]; }?>">Калькулятор ипотеки и рассрочки<i class="mso mi_rarr right"></i></a></div>
-		<a id="nature"></a>
 	</div></div></div></div>
 </div>
 <div class="content mt-1 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
 	<div class="elem-poselok">
-
-		<div class="row align-items-center cards">
-			<div class="col-12 col-md-6 order-md-1"><div class="poselok-image w100" style="background-image: url('<?=($actualItem['PROPERTIES']['photonum_p']['VALUE'] > 0)?$actualItem['MORE_PHOTO'][$actualItem['PROPERTIES']['photonum_p']['VALUE'] - 1]['SRC']:$actualItem['MORE_PHOTO'][3]['SRC']?>')"></div></div>
-			<div class="col-12 col-md-6 text-center order-md-0">
-				<div class="inner">
-					<div class="h2 mt-5 mt-md-0">Природа</div>
-					<div class="slogan"><?=$actualItem['PROPERTIES']['nature_slogan']['VALUE']?></div>
-					<?=print_rows($actualItem['PROPERTIES']['nature_items']['VALUE'])?>
-				</div>
-			</div>
-		</div>
 
 		<meta itemprop="name" content="<?=$name?>" />
 
