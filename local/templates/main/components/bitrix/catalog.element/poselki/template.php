@@ -619,7 +619,7 @@ $arrNearFilter = get_nearest_filter($actualItem['ID'], $actualItem["PROPERTIES"]
 
 if(count($arrNearFilter['ID']) > 0) {
 ?>
-		<div class="h2 mb-0 mt-5">Соседние поселки</div>
+		<div class="h2 mb-0 mt-5">Похожие поселки</div>
 	</div>
 </div></div></div></div>
 <div class="canvas">
@@ -755,6 +755,11 @@ if(count($arrNearFilter['ID']) > 0) {
 					$component
 				);
 ?>
+                <?if($actualItem['PROPERTIES']['seo_anchor_for_similar_villages']['VALUE']):?>
+                    <div class="seo_anchor_similar_villages">
+                        <p><?=$actualItem['PROPERTIES']['seo_anchor_for_similar_villages']['VALUE'];?></p>
+                    </div>
+                <?endif;?>
 	</div></div></div></div>
 </div>
 <div class="content mt-5 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
