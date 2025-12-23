@@ -367,16 +367,6 @@ if($actualItem['PROPERTIES']['video']['VALUE'] != "") {
 
 <div class="content mt-0 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
 	<div class="elem-poselok">
-		<div class="row align-items-center cards pb-0">
-			<div class="col-12 col-md-6 text-center"><a id="infra"></a>
-				<div class="inner">
-					<div class="h2 mt-3 mt-md-0">Инфраструктура</div>
-					<div class="slogan"><?=$actualItem['PROPERTIES']['infra_slogan']['VALUE']?></div>
-					<?=print_rows($actualItem['PROPERTIES']['infra_items']['VALUE'])?>
-					<a id="lots"></a>
-				</div>
-			</div>
-		</div>
 		<div class="h2 mb-0 mt-4 mt-md-1">Участки в <?=$actualItem['DISPLAY_PROPERTIES']['name_p']['DISPLAY_VALUE']?></div>
 	</div>
 </div></div></div></div>
