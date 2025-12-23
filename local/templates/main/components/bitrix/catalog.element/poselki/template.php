@@ -542,23 +542,6 @@ $sort = (array_key_exists("sort", $_REQUEST) && array_key_exists($_REQUEST["sort
 ?>
 	</div></div></div></div>
 </div>
-<div class="content mt-1 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
-	<div class="elem-poselok">
-
-		<div class="row align-items-center cards">
-			<div class="col-12 col-md-6 text-center">
-				<div class="inner">
-					<div class="h2">Расположение</div>
-					<div class="slogan"><?=$actualItem['PROPERTIES']['placement_slogan']['VALUE']?></div><a id="place"></a>
-					<?=print_rows($actualItem['PROPERTIES']['placement_items']['VALUE'])?>
-					<div class="yandexbtn buttons"><a target="_blank" href="yandexnavi://build_route_on_map?lat_to=<?=str_replace(', ', '&lon_to=', ''.$actualItem['PROPERTIES']['map_navig']['VALUE'])?>" class="button"><i class="mso mi mi_navig"></i>Маршрут в Яндекс Навигаторе</a></div>
-				</div>
-			</div>
-			<div class="d-none d-md-block col-md-6"><div class="poselok-image w100" style="background-image: url('<?=($actualItem['PROPERTIES']['photonum_r']['VALUE'] > 0)?$actualItem['MORE_PHOTO'][$actualItem['PROPERTIES']['photonum_r']['VALUE'] - 1]['SRC']:$actualItem['MORE_PHOTO'][1]['SRC']?>')"></div></div>
-		</div>
-
-	</div>
-</div></div></div></div>
 <div id="map_location" style="height: 500px; width: 100%;"></div>
 <div class="content mt-1 mb-2"><div class="container-fluid"><div class="row"><div class="col-12 col-xl-10 offset-xl-1">
 	<div class="elem-poselok">
