@@ -651,7 +651,7 @@ $arrNearFilter = get_nearest_filter($poselokID, $actualItem["PROPERTIES"]["cente
 
 if(count($arrNearFilter['ID']) > 0) {
 ?>
-		<div class="h2 mb-0 mt-5">Похожие поселки</div>
+		<h2 class="h2 mb-0 mt-5">Похожие поселки</h2>
 	</div>
 </div></div></div></div>
 <div class="canvas">
@@ -801,7 +801,7 @@ if(count($arrNearFilter['ID']) > 0) {
             <div class="col-12 col-xl-10 offset-xl-1">
                 <div class="row align-items-center">
                     <div class="col-12 col-lg-7">
-                        <div class="h1">Почему выбирают ЭКО Земли</div>
+                        <h2 class="h1">Почему выбирают ЭКО Земли</h2>
                         <div class="hr mb-5"></div>
                     </div>
                 </div>
